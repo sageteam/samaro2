@@ -145,6 +145,19 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
+# https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/upload/')
+
+MEDIA_URL = '/media/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'media/static/'),
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'media/collectstatic')
+
+LOGIN_REDIRECT_USER = "signin"
+LOGIN_URL = "signin"
