@@ -25,7 +25,7 @@ SECRET_KEY = '^gvwur=zdunbf58qjz59bp=te#387o4fi0r5++#9(r9^02)_(y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'www.samaro.ir', 'samaro.ir', '87.236.211.83']
 
 
 # Application definition
