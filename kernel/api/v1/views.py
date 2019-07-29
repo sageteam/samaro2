@@ -367,6 +367,8 @@ class FAQCategoryViewSet(viewsets.ModelViewSet):
 #### Authentication
 
 class APILoginViewSet(viewsets.ViewSet):
+    authentication_classes = []
+    permission_classes = []
     """Checks email and password and returns an auth token"""
     serializer_class = AuthTokenSerializer
     def create(self, request):
@@ -374,6 +376,9 @@ class APILoginViewSet(viewsets.ViewSet):
         return ObtainAuthToken().post(request)
 
 class APIRegister(APIView):
+    authentication_classes = []
+    permission_classes = []
+
     def post(self, request, format = None, *args, **kwargs):
         
         serializer = UserRegisterSerializer(data = request.data)
