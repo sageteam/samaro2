@@ -19,6 +19,7 @@ from django_filters import rest_framework as filters
 ##################
 from accounts.models import User
 from .serializers.users import UserSerializer
+from .serializers.users import UserRegisterSerializer
 # Profile
 from users.models import GeneralProfile
 from .serializers.users import UserProfileSerializer

@@ -81,3 +81,27 @@ class UserProfileTransmitSerializer(ModelSerializer):
         model = Transmit
         fields = ('score', 'job', 'emergency_number')
         # read_only_fields = ('score',)
+
+class UserRegisterSerializer(ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('id', 'email', 'first_name', 'last_name', 'password')
+        extra_kwargs = {'password': {'write_only': True}}
+    
+    def create(self, validate_data):
+        try:
+            first_name = validate_data['first_name']
+            last_name = validate_data['last_name']
+        except KeyError:
+            raise NotAcceptable(detail = 'You need to fill all parameters.')
+        user = User(
+            email=validate_data['email'],
+            first_name=validate_data['first_name'],
+            last_name=validate_data['last_name']
+        )
+
+        user.set_password(validate_data['password'])
+        user.save()
+
+        return user
